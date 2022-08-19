@@ -2,6 +2,7 @@ import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 import classNames from 'classnames';
+import Select from 'react-select';
 import { Footer, Nav } from '../components';
 
 
@@ -59,7 +60,7 @@ export default function Home() {
                   ) : null}
                 </div>
               </div>
-              <div className="col-7 boards">
+              {/* <div className="col-7 boards">
                 <div
                   className={`board__group board__group--1 ${isMobile && !usage ? ' d-none' : ''}`}
                 >
@@ -102,7 +103,7 @@ export default function Home() {
                     </div>
                   ) : null}
                 </div>
-              </div>
+              </div> */}
             </div>
           </div>
           <Footer dark={dark} />
