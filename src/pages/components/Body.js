@@ -18,7 +18,7 @@ const SearchbarDropdown = (props) => {
             <input
                 id="search-bar"
                 type="text"
-                className="form-control"
+                className="form-control border-solid border-2 border-gray-300 rounded-lg"
                 placeholder="Search"
                 ref={inputRef}
                 onChange={onInputChange}
@@ -32,7 +32,7 @@ const SearchbarDropdown = (props) => {
                             onClick={(e) => {
                                 inputRef.current.value = option;
                             }}
-                            className="border-solid border-2 border-gray-300 rounded-md p-2 m-1 w-2/6"
+                            className="border-solid border-2 border-gray-300 rounded-md p-2 m-1 w-2/6 justify-center"
                         >
                             {option}
                         </button>
