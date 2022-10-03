@@ -5,7 +5,7 @@ import Body from './components/Body';
 
 export default function Home() {
   return (
-    <div className='flex'>
+    <div className='flex-col flex'>
       <Navbar />
       <Body />
       <Footer />

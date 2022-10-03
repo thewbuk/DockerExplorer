@@ -5,7 +5,7 @@ const Navbar = () => {
         swich: "col-start-6 col-span-2",
     }
     return (
-        <div className="fixed top-0 bg-white w-screen shadow-md rounded-2xl grid grid-cols-6 h-16 mx-6" >
+        <div className="fixed top-0 bg-white w-screen shadow-md rounded-2xl grid grid-cols-6 h-16" >
             <div className={styles.logo}>Logo</div>
 
         </div>
