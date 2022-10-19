@@ -15,8 +15,8 @@ const Footer = () => {
                     <LinkedInIcon sx={{ fontSize: 30 }} />
                 </a>
 
-            <div className="text-center text-gray-800 text-xl" >
-                Made with ❤ by&nbsp; <a href='https://thewb.uk' target="_blank" rel="noreferrer" className='hover:text-blue-500'>thewb</a>
+            <div className="text-center text-gray-800 text-md" >
+                Made with ❤ by&nbsp;<a href='https://thewb.uk' target="_blank" rel="noreferrer" className='hover:text-blue-500'>thewb</a>
             </div>
         </div >
         </div>
