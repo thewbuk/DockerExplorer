@@ -5,7 +5,7 @@ import Body from './components/Body';
 
 export default function Home() {
   return (
-    <div className='grid grid-rows-3 grid-flow-col'>
+    <div className='grid grid-rows-3 grid-flow-col bg-[#eef0f2]'>
 
       <Navbar />
 

@@ -1,193 +1,6 @@
-/*!
- * Bootstrap Reboot v4.1.1 (https://getbootstrap.com/)
- * Copyright 2011-2018 The Bootstrap Authors
- * Copyright 2011-2018 Twitter, Inc.
- * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
- * Forked from Normalize.css, licensed MIT (https://github.com/necolas/normalize.css/blob/master/LICENSE.md)
- */
-*,
-::after,
-::before {
-  box-sizing: border-box
-}
-
-html {
-  font-family: sans-serif;
-  line-height: 1.15;
-  -webkit-text-size-adjust: 100%;
-  -ms-text-size-adjust: 100%;
-  -ms-overflow-style: scrollbar;
-  -webkit-tap-highlight-color: transparent
-}
-
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-  font-size: 1rem;
-  font-weight: 400;
-  line-height: 1.5;
-  color: #212529;
-  text-align: left;
-  background-color: #fff
-}
-
-[tabindex="-1"]:focus {
-  outline: 0 !important
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  margin-top: 0;
-  margin-bottom: .5rem
-}
-
-p {
-  margin-top: 0;
-  margin-bottom: 1rem
-}
-
-pre {
-  font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-  font-size: 1em
-}
-
-pre {
-  margin-top: 0;
-  margin-bottom: 1rem;
-  overflow: auto;
-  -ms-overflow-style: scrollbar
-}
-
-img {
-  vertical-align: middle;
-  border-style: none
-}
-
-svg:not(:root) {
-  overflow: hidden
-}
-
-select,
-textarea {
-  margin: 0;
-  font-family: inherit;
-  font-size: inherit;
-  line-height: inherit
-}
-
-select {
-  text-transform: none
-}
-
-[type=reset],
-[type=submit],
-html [type=button] {
-  -webkit-appearance: button
-}
-
-[type=button]::-moz-focus-inner,
-[type=reset]::-moz-focus-inner,
-[type=submit]::-moz-focus-inner {
-  padding: 0;
-  border-style: none
-}
-
-textarea {
-  overflow: auto;
-  resize: vertical
-}
-
-[type=number]::-webkit-inner-spin-button,
-[type=number]::-webkit-outer-spin-button {
-  height: auto
-}
-
-[type=search] {
-  outline-offset: -2px;
-  -webkit-appearance: none
-}
-
-[type=search]::-webkit-search-cancel-button,
-[type=search]::-webkit-search-decoration {
-  -webkit-appearance: none
-}
-
-::-webkit-file-upload-button {
-  font: inherit;
-  -webkit-appearance: button
-}
-
-nb {
-  display: inline-block
-}
-
-[hidden] {
-  display: none !important
-}
-
-@font-face {
-  font-family: OpenSans;
-  font-style: normal;
-  font-weight: 300;
-  src: url(../assets/fonts/OpenSans/OpenSans-Light.ttf) format("truetype");
-  text-rendering: optimizeLegibility
-}
-
-@font-face {
-  font-family: OpenSans;
-  font-style: normal;
-  font-weight: 400;
-  src: url(../assets/fonts/OpenSans/OpenSans-Regular.ttf) format("truetype");
-  text-rendering: optimizeLegibility
-}
-
-@font-face {
-  font-family: OpenSans;
-  font-style: normal;
-  font-weight: 600;
-  src: url(../assets/fonts/OpenSans/OpenSans-SemiBold.ttf) format("truetype");
-  text-rendering: optimizeLegibility
-}
-
-@font-face {
-  font-family: OpenSans;
-  font-style: normal;
-  font-weight: 700;
-  src: url(../assets/fonts/OpenSans/OpenSans-Bold.ttf) format("truetype");
-  text-rendering: optimizeLegibility
-}
-
-@font-face {
-  font-family: OpenSans;
-  font-style: normal;
-  font-weight: 800;
-  src: url(../assets/fonts/OpenSans/OpenSans-ExtraBold.ttf) format("truetype");
-  text-rendering: optimizeLegibility
-}
-
-.d-none {
-  display: none
-}
-
-html {
-  font-size: 62.5%
-}
-
-body {
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-  font-family: OpenSans, sans-serif;
-  font-size: 1.6rem
-}
 
 .home {
   background: #eef0f2;
-  transition: background .3s cubic-bezier(.175, .885, .32, 1.275)
 }
 
 .home__container {
@@ -198,32 +11,6 @@ body {
   min-height: 100vh
 }
 
-@media (max-width:575px) {
-  .home__container {
-    padding: 3rem
-  }
-}
-
-.home.dark {
-  background: #20252d
-}
-
-.home.dark .dark-white {
-  color: #fff !important
-}
-
-.home.dark .board {
-  background: rgba(255, 255, 255, .2) !important
-}
-
-.home.dark .dark-grey {
-  color: rgba(255, 255, 255, .8) !important
-}
-
-.home .container {
-  display: flex;
-  width: 100%
-}
 
 @media (min-width:992px) and (max-width:1199px) {
   .home .container {
@@ -250,14 +37,6 @@ body {
   }
 }
 
-.home .row .col {
-  flex: 1;
-  padding: 0 2rem
-}
-
-.home .row .col-5 {
-  width: calc((100% / 12) * 5)
-}
 
 @media (max-width:991px) {
   .home .row .col-5 {
@@ -284,19 +63,6 @@ body {
   }
 }
 
-.home .content {
-  flex: 1;
-  padding-top: 10rem
-}
-
-.home .content__title {
-  color: #20252d;
-  letter-spacing: 1px
-}
-
-.home .content__title span {
-  color: #00bfaa
-}
 
 @media (max-width:575px) {
   .home .content {
@@ -304,14 +70,6 @@ body {
   }
 }
 
-.home .content__subtitle {
-  color: #4a4a4a;
-  font-size: 1.4rem;
-  letter-spacing: 1px;
-  margin: 0;
-  transition: .1s color;
-  width: 30rem
-}
 
 @media (max-width:575px) {
   .home .content__subtitle {

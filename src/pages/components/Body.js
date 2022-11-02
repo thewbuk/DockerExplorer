@@ -3,9 +3,19 @@ import Typist from 'react-typist';
 import { isMobile } from 'react-device-detect';
 import { optionsFirst, optionsSecond, optionsThird } from '../data';
 import Select from 'react-select';
-import clipboard from '../../assets/images/clipboard.svg';
+import ContentCopyIcon from '@mui/icons-material/ContentCopy';
 import classnames from 'classnames';
 
+const styles = {
+    body: 'bg-[#eef0f2]',
+    container: 'flex flex-col items-center justify-center',
+    header: 'text-center flex-col ',
+    logo: 'text-4xl font-bold text-gray-800 my-8',
+    description: 'text-gray-800 text-lg',
+    green: 'text-green-500 text-3xl font-bold my-6',
+    options: 'w-2/6',
+    input: 'my-5 border-indigo-500/100',
+}
 
 class App extends Component {
     constructor(props) {
@@ -142,99 +152,145 @@ class App extends Component {
         const avgTypingDelay = fastType ? 0 : 50;
 
         return (
-            <div className='w-full reltive'>
-                <div className={classnames('home', { dark })}>
-                    <div className="container home__container">
-                        <div className="content">
-                            <div className="row">
-                                <div className="col-5">
-                                    <h2 className="content__title  dark-white">
-                                        Git <span>Command</span> Explorer
-                                    </h2>
-                                    <p className="content__subtitle dark-grey">
-                                        Find the right commands you need without digging through the web.
-                                    </p>
+            <div className={styles.body}>
+                <div className={styles.header}>
+                    <div className={styles.logo}>
+                        Docker Explorer
+                    </div>
+                    <div className={styles.description}>
+                        Find the right commands you need without digging through the web.
+                    </div>
+                    <div className={styles.green}>
+                        I want to:
+                    </div>
+                </div>
+                <div className={styles.container}>
+                    <div className={styles.options}>
+                        <Select
+                            placeholder="..."
+                            className={styles.input}
+                            classNamePrefix="options-select"
+                            isSearchable={true}
+                            onChange={this.onFirstChange}
+                            value={firstOption}
+                            options={optionsFirst}
+                        />
 
-                                    <div className="options">
-                                        <h4 className="options__title">I want to:</h4>
+                        {showSecond ? (
+                            <Select
+                                placeholder="..."
+                                className={styles.input}
+                                classNamePrefix="options-select"
+                                isSearchable={true}
+                                onChange={this.onSecondChange}
+                                value={secondOption}
+                                options={optionsSecond[firstOption.value]}
+                            />
+                        ) : null}
 
-                                        <Select
-                                            placeholder="..."
-                                            className="options-select"
-                                            classNamePrefix="options-select"
-                                            isSearchable={true}
-                                            onChange={this.onFirstChange}
-                                            value={firstOption}
-                                            options={optionsFirst}
-                                        />
+                        {showThird ? (
+                            <Select
+                                placeholder="..."
+                                className="options-select"
+                                classNamePrefix="options-select"
+                                isSearchable={true}
+                                onChange={this.onThirdChange}
+                                value={thirdOption}
+                                options={optionsThird[secondOption.value]}
+                            />
+                        ) : null}
+                    </div>
+                </div>
+                <div className=''>
+                    <div className={classnames('home', { dark })}>
+                        <div className="container home__container">
+                            <div className="content">
+                                <div className="row">
+                                    <div className>
+                                        <h2 className="content__title  dark-white">
+                                            Docker <span>Explorer</span>
+                                        </h2>
+                                        <p className="content__subtitle dark-grey">
+                                            Find the right commands you need without digging through the web.
+                                        </p>
 
-                                        {showSecond ? (
+                                        <div className="options">
+                                            <h4 className="options__title">I want to:</h4>
+
                                             <Select
                                                 placeholder="..."
                                                 className="options-select"
                                                 classNamePrefix="options-select"
                                                 isSearchable={true}
-                                                onChange={this.onSecondChange}
-                                                value={secondOption}
-                                                options={optionsSecond[firstOption.value]}
+                                                onChange={this.onFirstChange}
+                                                value={firstOption}
+                                                options={optionsFirst}
                                             />
-                                        ) : null}
 
-                                        {showThird ? (
-                                            <Select
-                                                placeholder="..."
-                                                className="options-select"
-                                                classNamePrefix="options-select"
-                                                isSearchable={true}
-                                                onChange={this.onThirdChange}
-                                                value={thirdOption}
-                                                options={optionsThird[secondOption.value]}
-                                            />
-                                        ) : null}
+                                            {showSecond ? (
+                                                <Select
+                                                    placeholder="..."
+                                                    className="options-select"
+                                                    classNamePrefix="options-select"
+                                                    isSearchable={true}
+                                                    onChange={this.onSecondChange}
+                                                    value={secondOption}
+                                                    options={optionsSecond[firstOption.value]}
+                                                />
+                                            ) : null}
+
+                                            {showThird ? (
+                                                <Select
+                                                    placeholder="..."
+                                                    className="options-select"
+                                                    classNamePrefix="options-select"
+                                                    isSearchable={true}
+                                                    onChange={this.onThirdChange}
+                                                    value={thirdOption}
+                                                    options={optionsThird[secondOption.value]}
+                                                />
+                                            ) : null}
+                                        </div>
                                     </div>
-                                </div>
-                                <div className="col-7 boards">
-                                    <div
-                                        className={`board__group board__group--1 ${isMobile && !usage ? ' d-none' : ''}`}
-                                    >
-                                        <h2 className="board__title  dark-white">Usage</h2>
-                                        <div className="board board--1">
-                                            <pre>
+                                    <div className="col-7 boards">
+                                        <div
+                                            className={`board__group board__group--1 ${isMobile && !usage ? ' d-none' : ''}`}
+                                        >
+                                            <h2 className="board__title  dark-white">Usage</h2>
+                                            <div className="board board--1">
+                                                <pre>
+                                                    {usage.length ? (
+                                                        <Typist avgTypingDelay={avgTypingDelay} cursor={{ show: false }}>
+                                                            {usage}
+                                                        </Typist>
+                                                    ) : (
+                                                        <div />
+                                                    )}
+                                                </pre>
                                                 {usage.length ? (
-                                                    <Typist avgTypingDelay={avgTypingDelay} cursor={{ show: false }}>
-                                                        {usage}
-                                                    </Typist>
-                                                ) : (
-                                                    <div />
-                                                )}
-                                            </pre>
-                                            {usage.length ? (
-                                                <div className="copy">
-                                                    <span className={`copy__popover ${copied ? 'show' : ''}`}>
-                                                        command copied
-                                                    </span>
-                                                    <img
-                                                        className="copy__image"
-                                                        onClick={this.copyUsage}
-                                                        src={clipboard}
-                                                        alt="Clipboard"
-                                                    />
+                                                    <div className="copy">
+                                                        <span className={`copy__popover ${copied ? 'show' : ''}`}>
+                                                            command copied
+                                                        </span>
+
+                                                        <ContentCopyIcon onClick={this.copyUsage} cursor="pointer" />
+                                                    </div>
+                                                ) : null}
+                                            </div>
+
+                                            {nb ? (
+                                                <div className="board__group board__group--2">
+                                                    <h2 className="board__title  dark-white">Note</h2>
+                                                    <div className="board board--2">
+                                                        <pre>
+                                                            <Typist avgTypingDelay={avgTypingDelay} cursor={{ show: false }}>
+                                                                {nb}
+                                                            </Typist>
+                                                        </pre>
+                                                    </div>
                                                 </div>
                                             ) : null}
                                         </div>
-
-                                        {nb ? (
-                                            <div className="board__group board__group--2">
-                                                <h2 className="board__title  dark-white">Note</h2>
-                                                <div className="board board--2">
-                                                    <pre>
-                                                        <Typist avgTypingDelay={avgTypingDelay} cursor={{ show: false }}>
-                                                            {nb}
-                                                        </Typist>
-                                                    </pre>
-                                                </div>
-                                            </div>
-                                        ) : null}
                                     </div>
                                 </div>
                             </div>
@@ -242,7 +298,6 @@ class App extends Component {
                     </div>
                 </div>
             </div>
-
         );
     }
 }
