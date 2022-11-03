@@ -13,8 +13,8 @@ const styles = {
     logo: 'text-4xl font-bold text-gray-800 my-8',
     description: 'text-gray-800 text-lg',
     green: 'text-green-500 text-3xl font-bold my-6',
-    options: 'w-2/6',
-    input: 'my-5 border-indigo-500/100',
+    input: 'my-5 border-indigo-500/100 flex w-2/6 justify-center',
+
 }
 
 class App extends Component {
@@ -164,49 +164,47 @@ class App extends Component {
                         I want to:
                     </div>
                 </div>
-                <div className={styles.container}>
-                    <div className={styles.options}>
+                <div className={styles.options}>
+                    <Select
+                        placeholder="..."
+                        className={styles.input}
+                        classNamePrefix="options-select"
+                        isSearchable={true}
+                        onChange={this.onFirstChange}
+                        value={firstOption}
+                        options={optionsFirst}
+                    />
+
+                    {showSecond ? (
                         <Select
                             placeholder="..."
                             className={styles.input}
                             classNamePrefix="options-select"
                             isSearchable={true}
-                            onChange={this.onFirstChange}
-                            value={firstOption}
-                            options={optionsFirst}
+                            onChange={this.onSecondChange}
+                            value={secondOption}
+                            options={optionsSecond[firstOption.value]}
                         />
+                    ) : null}
 
-                        {showSecond ? (
-                            <Select
-                                placeholder="..."
-                                className={styles.input}
-                                classNamePrefix="options-select"
-                                isSearchable={true}
-                                onChange={this.onSecondChange}
-                                value={secondOption}
-                                options={optionsSecond[firstOption.value]}
-                            />
-                        ) : null}
-
-                        {showThird ? (
-                            <Select
-                                placeholder="..."
-                                className="options-select"
-                                classNamePrefix="options-select"
-                                isSearchable={true}
-                                onChange={this.onThirdChange}
-                                value={thirdOption}
-                                options={optionsThird[secondOption.value]}
-                            />
-                        ) : null}
-                    </div>
+                    {showThird ? (
+                        <Select
+                            placeholder="..."
+                            className="options-select"
+                            classNamePrefix="options-select"
+                            isSearchable={true}
+                            onChange={this.onThirdChange}
+                            value={thirdOption}
+                            options={optionsThird[secondOption.value]}
+                        />
+                    ) : null}
                 </div>
                 <div className=''>
                     <div className={classnames('home', { dark })}>
                         <div className="container home__container">
                             <div className="content">
                                 <div className="row">
-                                    <div className>
+                                    {/* <div className>
                                         <h2 className="content__title  dark-white">
                                             Docker <span>Explorer</span>
                                         </h2>
@@ -251,8 +249,8 @@ class App extends Component {
                                                 />
                                             ) : null}
                                         </div>
-                                    </div>
-                                    <div className="col-7 boards">
+                                    </div> */}
+                                    <div className={styles.container}>
                                         <div
                                             className={`board__group board__group--1 ${isMobile && !usage ? ' d-none' : ''}`}
                                         >
