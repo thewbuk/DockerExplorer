@@ -1,15 +1,11 @@
 export const secondaryOptions = {
-  commit: [
+  attach: [
     {
       value: 'local-changes',
-      label: 'commit all local changes in tracked files',
-      usage: 'git commit -a'
-    },
-    {
-      value: 'staged-changes',
-      label: 'commit all staged changes',
-      usage: 'git commit -m <message>',
-      nb: 'Replace <message> with your commit message.'
+      label: '<>',
+      usage: 'docker attach [OPTIONS] CONTAINER',
+      nb: '[--detach-keys] - Override the key sequence for detaching a container [--no-stdin] - Do not attach STDIN [--sig-proxy] - Proxy all received signals to the process'
+
     }
   ],
 
@@ -33,13 +29,13 @@ export const secondaryOptions = {
       label: 'external diff tool',
       usage: 'git config --global diff.external "meld"',
       nb: 'Set external diff tool to meld.'
-    }, 
+    },
     {
       value: 'merge-tool',
       label: 'default merge tool',
       usage: 'git config --global merge.tool "meld"',
       nb: 'Set default merge tool to meld.'
-    }, 
+    },
     {
       value: 'color',
       label: 'color',
@@ -114,7 +110,7 @@ export const secondaryOptions = {
       usage: 'git status'
     },
     {
-      value: 'logs',
+      value: '',
       label: 'commit logs/history'
     },
     {
