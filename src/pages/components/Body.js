@@ -272,8 +272,9 @@ class App extends Component {
                                                 <span className={`copy__popover ${copied ? 'show' : ''}`}>
                                                     command copied
                                                 </span>
-
-                                                <ContentCopyIcon onClick={this.copyUsage} cursor="pointer" />
+                                                <div className='cursor-pointer'>
+                                                    <ContentCopyIcon onClick={this.copyUsage} cursor="pointer" />
+                                                </div>
                                             </div>
                                         ) : null}
                                     </div>
