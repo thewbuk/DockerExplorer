@@ -7,7 +7,7 @@ import ContentCopyIcon from '@mui/icons-material/ContentCopy';
 import classnames from 'classnames';
 
 const styles = {
-    body: 'absolute w-full h-full',
+    body: 'w-full mt-32',
     container: 'flex flex-col items-center justify-center m-w-full',
     header: 'text-center flex-col ',
     logo: 'text-4xl font-bold text-gray-800 my-8',

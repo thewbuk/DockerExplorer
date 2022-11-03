@@ -5,7 +5,7 @@ import Body from './components/Body';
 
 export default function Home() {
   return (
-    <div className='flex bg-[#eef0f2]'>
+    <div className='bg-[#eef0f2]'>
 
       <Navbar />
 

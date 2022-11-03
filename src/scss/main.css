@@ -1,23 +1,11 @@
-.home__container {
-  display: flex;
-}
-
-
-
 .home .content .board {
   background: #20252d;
   border-radius: 1rem;
   border-left: 1rem solid #00bfaa;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
   padding: 3rem;
   transition: .3s background cubic-bezier(.175, .885, .32, 1.275);
   min-width: 60rem;
 }
-
-
-
 
 .home .content .board * {
   color: #fff;
