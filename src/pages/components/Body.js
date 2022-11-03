@@ -15,7 +15,8 @@ const styles = {
     green: 'text-green-500 text-3xl font-bold my-6',
     options: 'w-2/6',
     input: 'my-5 border-indigo-700 text-center',
-    results: 'min-w-92'
+    results: 'min-w-92',
+    // [home content board]: 'bg-[#20252d] rounded-sm border-l-1 '
 
 }
 

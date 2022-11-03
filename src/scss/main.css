@@ -1,8 +1,5 @@
 .home__container {
   display: flex;
-  padding: 3rem 5rem;
-  flex-direction: column;
-  justify-content: space-between;
 }
 
 
