@@ -1,11 +1,11 @@
 const options = [
   { value: 'attach', label: 'Attach input/output' },
-  { value: 'build', label: 'Build an image from a Dockerfile' },
+  { value: 'build', label: 'Build an image ' },
   { value: 'builder', label: 'Manage builds' },
   { value: 'buildx', label: 'BuildKit' },
   { value: 'checkpoint', label: 'Manage checkpoints' },
   { value: 'commit', label: 'Create a new image from changes' },
-  { value: 'compose ', label: 'compose' },
+  { value: 'compose ', label: 'Compose' },
   { value: 'config', label: 'Manage Docker configs' },
   { value: 'container', label: 'Manage containers' },
   { value: 'context', label: 'Manage contexts' },

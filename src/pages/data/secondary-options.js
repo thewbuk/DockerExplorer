@@ -1,269 +1,515 @@
 export const secondaryOptions = {
   attach: [
     {
-      value: 'local-changes',
-      label: '<>',
+      value: ' attach-container',
+      label: 'to a running container',
       usage: 'docker attach [OPTIONS] CONTAINER',
       nb: '[--detach-keys] - Override the key sequence for detaching a container [--no-stdin] - Do not attach STDIN [--sig-proxy] - Proxy all received signals to the process'
 
     }
   ],
 
-  configure: [
+  build: [
     {
-      value: 'email-name',
-      label: 'name and email address',
+      value: 'build-docker',
+      label: 'from a Dockerfile',
       usage:
-        'git config --global user.name "username" \n\ngit config --global user.email "email address"',
+        'docker build [OPTIONS] PATH | URL | -',
       nb:
-        'Your username and email address should be the same as the one used with your git hosting provider i.e. github, bitbucket, gitlab etc'
+        '<>'
     },
-    {
-      value: 'editor',
-      label: 'default editor',
-      usage: 'git config --global core.editor "vim"',
-      nb: 'Change default editor to vim.'
-    },
-    {
-      value: 'diff-tool',
-      label: 'external diff tool',
-      usage: 'git config --global diff.external "meld"',
-      nb: 'Set external diff tool to meld.'
-    },
-    {
-      value: 'merge-tool',
-      label: 'default merge tool',
-      usage: 'git config --global merge.tool "meld"',
-      nb: 'Set default merge tool to meld.'
-    },
-    {
-      value: 'color',
-      label: 'color',
-      usage: 'git config --global color.ui auto',
-      nb: 'Enables helpful colorization of command line output'
-    },
-    {
-      value: 'signingkey',
-      label: 'add the GPG key',
-      usage: 'git config --global user.signingkey <your-secret-gpg-key>',
-      nb:
-        'Git is cryptographically secure, but it’s not foolproof. If you’re taking work from others on the internet and want to verify that commits are actually from a trusted source, Git has a few ways to sign and verify work using GPG.'
-    }
   ],
 
   revert: [
     {
-      value: 'specific-commit',
-      label: 'a specific commit',
-      usage: 'git revert <commit-hash>',
-      nb: 'Use git log to see the hash of each commit'
+      value: 'builder-build',
+      label: 'from a Dockerfile',
+      usage: 'docker builder build [OPTIONS] PATH | URL | -',
     },
     {
-      value: 'specific-file',
-      label: 'a specific file',
-      usage: 'git checkout <repo>/<branch> <filename>',
+      value: 'builder-prune',
+      label: 'remove build cache',
+      usage: 'docker builder prune',
     },
-    {
-      value: 'to-last-commit',
-      label: 'to last commit',
-      usage: 'git reset --hard'
-    },
-    {
-      value: 'to-last-commit-from-remote',
-      label: 'to last commit on remote branch',
-      usage: 'git reset --hard <repo>/<branch>'
-    }
   ],
 
-  initialize: [
+  buildx: [
     {
-      value: 'new-repo',
-      label: 'a new repository',
-      nb: 'Make sure you are in the right directory',
-      usage: 'git init'
-    }
+      value: 'buildx-bake',
+      label: 'Build from file',
+      usage: 'docker buildx bake [OPTIONS] [TARGET...]'
+    },
+    {
+      value: 'buildx-build',
+      label: 'Start a build',
+      usage: 'docker buildx build [OPTIONS] PATH | URL | -'
+    },
+    {
+      value: 'buildx-create',
+      label: 'Create a new builder instance',
+    },
+    {
+      value: 'buildx-du',
+      label: 'Disk usage',
+      usage: 'docker buildx du'
+    },
+    {
+      value: 'buildx-imagetools',
+      label: 'Commands to work on images in registry',
+    },
+    {
+      value: 'buildx-inspect',
+      label: 'Inspect current builder instance',
+      usage: 'docker buildx inspect [NAME]'
+    },
+    {
+      value: 'buildx-ls',
+      label: 'List builder instances',
+      usage: 'docker buildx ls'
+    },
+    {
+      value: 'buildx-prune',
+      label: 'Remove build cache',
+      usage: 'docker buildx prune'
+    },
+    {
+      value: 'buildx-rm',
+      label: 'Remove a builder instance',
+      usage: 'docker buildx rm [NAME]'
+    },
+    {
+      value: 'buildx-stop',
+      label: 'Stop builder instance',
+      usage: 'docker buildx stop [NAME]'
+    },
+    {
+      value: 'buildx-uninstall',
+      label: 'Uninstall the ‘docker builder’ alias',
+      usage: 'docker buildx uninstall'
+    },
+    {
+      value: 'buildx-set',
+      label: 'Set the current builder instance',
+      usage: 'docker buildx use [OPTIONS] NAME'
+    },
+    {
+      value: 'buildx-uninstall',
+      label: 'Show buildx version information',
+      usage: 'docker buildx version'
+    },
   ],
 
-  modify: [
+  checkpoint: [
     {
-      value: 'commit-message',
-      label: 'my last/latest commit message',
-      usage: 'git commit --amend'
+      value: 'checkpoint-create',
+      label: 'Create a checkpoint from a running container',
+      usage: 'docker checkpoint create [OPTIONS] CONTAINER CHECKPOINT'
     },
+    {
+      value: 'checkpoint-ls',
+      label: 'List checkpoints for a container',
+      usage: 'docker checkpoint ls [OPTIONS] CONTAINER'
+    },
+    {
+      value: 'checkpoint-remove',
+      label: 'Remove a checkpoint',
+      usage: 'docker checkpoint rm [OPTIONS] CONTAINER CHECKPOINT'
+    },
+
+  ],
+
+  commit: [
     {
       value: 'commit',
-      label: 'my last commit but leave the commit message as is',
-      usage: 'git add . \ngit commit --amend --no-edit'
+      label: 'Create a new image from a container’s changes',
+      usage: 'docker commit [OPTIONS] CONTAINER [REPOSITORY[:TAG]]'
+    },
+  ],
+
+  compose: [
+    {
+      value: 'compose-compose',
+      label: 'Docker Compose',
+      usage: 'docker compose COMMAND',
+      nb: 'Use -f to specify name and path of one or more Compose files \n docker compose -f docker-compose.yml -f docker-compose.admin.yml run backup_db'
     },
     {
-      value: 'remoteUrl',
-      label: "repo's remote url",
-      usage: 'git remote set-url <alias> <url>',
-      nb: '<alias> is your remote name e.g origin'
+      value: 'compose-build',
+      label: 'Build or rebuild services',
+      usage: 'docker compose build [OPTIONS] [SERVICE...]',
+    },
+    {
+      value: 'compose-convert',
+      label: 'Converts the compose file to platform’s canonical format',
+      usage: 'docker compose convert [OPTIONS] [SERVICE...]',
+    },
+    {
+      value: 'compose-cp',
+      label: 'Copy files/folders between a service container and the local filesystem',
+      usage: 'docker compose cp [OPTIONS] SERVICE:SRC_PATH DEST_PATH|',
+    },
+    {
+      value: 'compose-create',
+      label: 'Creates containers for a service',
+      usage: 'docker compose create [OPTIONS] [SERVICE...]',
+    },
+    {
+      value: 'compose-down',
+      label: 'Stop and remove containers, networks',
+      usage: 'docker compose down [OPTIONS]',
+    },
+    {
+      value: 'compose-events',
+      label: 'Receive real time events from containers.',
+      usage: 'docker compose events [OPTIONS] [SERVICE...]',
+    },
+    {
+      value: 'compose-exec',
+      label: 'Execute a command in a running container.',
+      usage: 'docker compose exec [OPTIONS] SERVICE COMMAND [ARGS...]',
+    },
+    {
+      value: 'compose-images',
+      label: 'List images used by the created containers',
+      usage: 'docker compose images [OPTIONS] [SERVICE...]',
+    },
+    {
+      value: 'compose-kill',
+      label: 'Force stop service containers',
+      usage: 'docker compose kill [OPTIONS] [SERVICE...]',
+    },
+    {
+      value: 'compose-logs',
+      label: 'View output from containers',
+      usage: 'docker compose logs [OPTIONS] [SERVICE...]',
+    },
+    {
+      value: 'compose-ls',
+      label: 'List running compose projects',
+      usage: 'docker compose ls [OPTIONS]',
+    },
+    {
+      value: 'compose-pause',
+      label: 'Pause services',
+      usage: 'docker compose pause [SERVICE...]',
+    },
+    {
+      value: 'compose-port',
+      label: 'Print the public port for a port binding.',
+      usage: 'docker compose port [OPTIONS] SERVICE PRIVATE_PORT',
+    },
+    {
+      value: 'compose-ps',
+      label: 'List containers',
+      usage: 'docker compose ps [OPTIONS] [SERVICE...]',
+    },
+    {
+      value: 'compose-pull',
+      label: 'Pull service images',
+      usage: 'docker compose pull [OPTIONS] [SERVICE...]',
+    },
+    {
+      value: 'compose-push',
+      label: 'Push service images',
+      usage: 'docker compose push [OPTIONS] [SERVICE...]',
+    },
+    {
+      value: 'compose-restart',
+      label: 'Restart service containers',
+      usage: 'docker compose restart [OPTIONS] [SERVICE...]',
+    },
+    {
+      value: 'compose-rm',
+      label: 'Run a one-off command on a service',
+      usage: 'docker compose run [OPTIONS] SERVICE [COMMAND] [ARGS...]',
+    },
+    {
+      value: 'compose-run',
+      label: 'Stop and remove containers, networks',
+      usage: 'docker compose down [OPTIONS]',
+      nb: 'Use "docker compose run web bash" to run web bash'
+    },
+    {
+      value: 'compose-start',
+      label: 'Start services',
+      usage: 'docker compose start [SERVICE...]',
+    },
+    {
+      value: 'compose-stop',
+      label: 'Stop services',
+      usage: 'docker compose stop [OPTIONS] [SERVICE...]',
+    },
+    {
+      value: 'compose-top',
+      label: 'Display the running processes',
+      usage: 'docker compose top [SERVICES...]',
+    },
+    {
+      value: 'compose-unpause',
+      label: 'Unpause services',
+      usage: 'docker compose unpause [SERVICE...]',
+    },
+    {
+      value: 'compose-up',
+      label: 'Create and start containers',
+      usage: 'docker compose up [OPTIONS] [SERVICE...]',
+    },
+    {
+      value: 'compose-version',
+      label: 'Show the Docker Compose version information',
+      usage: 'docker compose version [OPTIONS]',
+    },
+  ],
+
+  config: [
+    {
+      value: 'config-create',
+      label: 'Create a config from a file or STDIN',
+      usage: 'docker config create [OPTIONS] CONFIG file|-',
+      nb: 'This is a cluster management command, and must be executed on a swarm manager node.'
+    },
+    {
+      value: 'config-inspect',
+      label: 'Display detailed information on configs',
+      usage: 'docker config inspect [OPTIONS] CONFIG [CONFIG...]',
+      nb: 'This is a cluster management command, and must be executed on a swarm manager node.'
+
+    },
+    {
+      value: 'config-ls',
+      label: 'List configs',
+      usage: 'docker config ls [OPTIONS]',
+      nb: 'This is a cluster management command, and must be executed on a swarm manager node.'
+
+    },
+    {
+      value: 'config-rm',
+      label: 'Remove one or more configs',
+      usage: 'docker config rm CONFIG [CONFIG...]',
+      nb: 'This is a cluster management command, and must be executed on a swarm manager node.'
+
     }
   ],
 
-  show: [
+  container: [
     {
-      value: 'repo-status',
-      label: 'status of project including staged, unstaged and untracked files',
-      usage: 'git status'
+      value: 'container-attach',
+      label: 'Attach local standard input, output, and error streams to a running container',
+      usage: 'docker container attach [OPTIONS] CONTAINER',
     },
     {
-      value: '',
-      label: 'commit logs/history'
+      value: 'container-commit',
+      label: 'Create a new image from a container’s changes',
+      usage: 'docker container commit [OPTIONS] CONTAINER [REPOSITORY[:TAG]]',
     },
     {
-      value: 'uncommittedChanges',
-      label: 'uncommitted changes',
-      usage: 'git diff'
+      value: 'container-cp',
+      label: 'Copy files/folders between a container and the local filesystem',
+      usage: 'docker container cp [OPTIONS] CONTAINER:SRC_PATH DEST_PATH|-',
     },
     {
-      value: 'committedChanges',
-      label: 'committed/staged changes',
-      usage: 'git diff --staged'
+      value: 'container-create',
+      label: 'Create a new container',
+      usage: 'docker container create [OPTIONS] IMAGE [COMMAND] [ARG...]',
     },
     {
-      value: 'remoteUrl',
-      label: "repo's remote url",
-      usage: 'git remote -v'
+      value: 'container-diff',
+      label: 'Inspect changes to files or directories on a container’s filesystem',
+      usage: 'docker container diff CONTAINER',
     },
     {
-      value: 'stash',
-      label: 'stash',
-      usage: 'git stash list'
+      value: 'container-exec',
+      label: 'Run a command in a running container',
+      usage: 'docker container exec [OPTIONS] CONTAINER COMMAND [ARG...]',
     },
     {
-      value: 'branch',
-      label: 'branches',
-      usage: 'git branch',
-      nb: 'The active branch is prefixed with *'
+      value: 'container-export',
+      label: 'Export a container’s filesystem as a tar archive',
+      usage: 'docker container export [OPTIONS] CONTAINER',
     },
     {
-      value: 'tags',
-      label: 'tags',
-      usage: 'git tag'
-    }
+      value: 'container-inspect',
+      label: 'Display detailed information on one or more containers',
+      usage: 'docker container inspect [OPTIONS] CONTAINER [CONTAINER...]',
+    },
+    {
+      value: 'container-kill',
+      label: 'Kill one or more running containers',
+      usage: 'docker container kill [OPTIONS] CONTAINER [CONTAINER...]',
+    },
+    {
+      value: 'container-logs',
+      label: 'Fetch the logs of a container',
+      usage: 'docker container logs [OPTIONS] CONTAINER',
+    },
+    {
+      value: 'container-ls',
+      label: 'List containers',
+      usage: 'docker container ls [OPTIONS]',
+    },
+    {
+      value: 'container-pause',
+      label: 'Pause all processes within one or more containers',
+      usage: 'docker container pause CONTAINER [CONTAINER...]',
+    },
+    {
+      value: 'container-port',
+      label: 'List port mappings or a specific mapping for the container',
+      usage: 'docker container port CONTAINER [PRIVATE_PORT[/PROTO]]',
+    },
+    {
+      value: 'container-prune',
+      label: 'Remove all stopped containers',
+      usage: 'docker container prune [OPTIONS]',
+    },
+    {
+      value: 'container-rename',
+      label: 'Rename a container',
+      usage: 'docker container rename CONTAINER NEW_NAME',
+    },
+    {
+      value: 'container-restart',
+      label: 'Restart one or more containers',
+      usage: 'docker container restart [OPTIONS] CONTAINER [CONTAINER...]',
+    },
+    {
+      value: 'container-rm',
+      label: 'Remove one or more containers',
+      usage: 'docker container rm [OPTIONS] CONTAINER [CONTAINER...]',
+    },
+    {
+      value: 'container-run',
+      label: 'Run a command in a new container',
+      usage: 'docker container run [OPTIONS] IMAGE [COMMAND] [ARG...]',
+    },
+    {
+      value: 'container-start',
+      label: 'Start one or more stopped containers',
+      usage: 'docker container start [OPTIONS] CONTAINER [CONTAINER...]',
+    },
+    {
+      value: 'container-stats',
+      label: 'Display a live stream of container(s) resource usage statistics',
+      usage: 'docker container stats [OPTIONS] [CONTAINER...]',
+    },
+    {
+      value: 'container-stop',
+      label: 'Stop one or more running containers',
+      usage: 'docker container stop [OPTIONS] CONTAINER [CONTAINER...]',
+    },
+    {
+      value: 'container-top',
+      label: 'Display the running processes of a container',
+      usage: 'docker container top CONTAINER [ps OPTIONS]',
+    },
+    {
+      value: 'container-unpause',
+      label: 'Unpause all processes within one or more containers',
+      usage: 'docker container unpause CONTAINER [CONTAINER...]',
+    },
+    {
+      value: 'container-update',
+      label: 'Update configuration of one or more containers',
+      usage: 'docker container update [OPTIONS] CONTAINER [CONTAINER...]',
+    },
+    {
+      value: 'container-wait',
+      label: 'Block until one or more containers stop, then print their exit codes',
+      usage: 'docker container wait CONTAINER [CONTAINER...]',
+    },
   ],
 
-  delete: [
+  context: [
     {
-      value: 'branch',
-      label: 'a branch',
-      usage: 'git branch -D <branch name>'
+      value: 'context-create',
+      label: 'Create a context',
+      usage: 'docker context create [OPTIONS] CONTEXT',
     },
     {
-      value: 'delete-multiple-branches',
-      label: 'multiple branches',
+      value: 'context-export',
+      label: 'Export a context to a tar or kubeconfig file',
+      usage: 'docker context export [OPTIONS] CONTEXT [FILE|-]',
     },
     {
-      value: 'tag',
-      label: 'a tag',
-      usage: 'git tag -d v<tag version>'
+      value: 'context-import',
+      label: 'Import a context from a tar or zip file',
+      usage: 'docker context import CONTEXT FILE|-',
     },
     {
-      value: 'remote',
-      label: 'remote',
-      usage: 'git remote rm <remote>'
+      value: 'context-inspect',
+      label: 'Display information on one or more contexts',
+      usage: 'docker context inspect [OPTIONS] [CONTEXT] [CONTEXT...]',
     },
     {
-      value: 'untracked-files',
-      label: 'untracked files',
-      usage: 'git clean -<flag>',
-      nb:
-        'replace -<flag> with:\n -i for interactive command\n -n to preview what will be removed\n -f to remove forcefully\n -d to remove directories\n -X to remove ignored files\n -x to remove ignored and non-ignored files'
+      value: 'context-ls',
+      label: 'List contexts',
+      usage: 'docker context ls [OPTIONS]',
     },
     {
-      value: 'files-from-index',
-      label: 'files from index',
-      usage: 'git rm --cached <file or dir>',
-      nb:
-        'Use this option to unstage and remove paths only from the index. Working tree files, whether modified or not, will be left alone.'
+      value: 'context-rm',
+      label: 'Remove one or more contexts',
+      usage: 'docker context rm CONTEXT [CONTEXT...]',
     },
     {
-      value: 'local-branches-not-on-remote',
-      label: "local branches that don't exist at remote",
-      usage: 'git remote prune <remote-name>',
-      nb:
-        'Use the --dry-run option to report what branches will be pruned, but do not actually prune them'
+      value: 'context-update',
+      label: 'Update a context',
+      usage: 'docker context update [OPTIONS] CONTEXT',
     },
     {
-      value: 'files-from-old-commit',
-      label: 'files from old commits',
-      usage:
-        "git filter-branch --index-filter \n'git rm --cached --ignore-unmatch path/to/mylarge_file' \n--tag-name-filter cat -- --all\n\nfilter-branch keeps backups too, so the size of the repo won't decrease immediately unless you expire the reflogs and garbage collect:\n\nrm -Rf .git/refs/original       # careful\ngit gc --aggressive --prune=now # danger",
-      nb:
-        "Like the rebasing option described before, filter-branch is rewriting operation. If you have published history, you'll have to --force push the new refs."
-    }
+      value: 'context-use',
+      label: 'Set the current docker context',
+      usage: 'docker context use CONTEXT',
+    },
+
   ],
 
-  compareCommits: [
+  cp: [
     {
-      value: 'terminal',
-      label: 'and output result in the terminal',
-      usage: 'git diff <sha1> <sha2>',
-      nb: 'sha1 and sha2 are the sha hash of the commits you want to compare.'
-    },
-    {
-      value: 'file',
-      label: 'and output result to a file',
-      usage: 'git diff <sha1> <sha2> > diff.txt',
-      nb:
-        'sha1 and sha2 are the sha of the commits you want to compare. \n\ndiff.txt is the file you want to store the contents of the diff'
+      value: 'cp',
+      label: 'Copy files/folders between a container and the local filesystem',
+      usage: 'docker cp [OPTIONS] CONTAINER:SRC_PATH DEST_PATH|-',
     }
   ],
-
-  clone: [
+  create: [
     {
-      value: 'clone-repo-into-a-new-dir',
-      label: 'existing repo into a new directory',
-      usage: 'git clone <repo-url> <directory>',
-      nb:
-        'The repo is cloned into the specified directory\n\nReplace "directory" with the directory you want'
-    },
-    {
-      value: 'clone-repo-into-a-current-dir',
-      label: 'existing repo into the current directory',
-      usage: 'git clone <repo-url> .',
-      nb:
-        'The repo is cloned into the current directory\n\nThe current directory is represented with a "." (period)'
-    },
-    {
-      value: 'clone-repo-with-submodule-into-a-current-dir',
-      label: 'existing repo along with submodules into the current directory',
-      usage: 'git clone --recurse-submodules <repo-url> .',
-      nb: 'If git version is under 2.13, use --recursive option instead.'
-    },
-    {
-      value: 'clone-submodule-after',
-      label: 'submodules after cloning existing repo',
-      usage: 'git submodule update --init --recursive'
+      value: 'create',
+      label: 'Create a new container',
+      usage: 'docker create [OPTIONS] IMAGE [COMMAND] [ARG...]',
     }
   ],
-
-  ignore: [
+  diff: [
     {
-      value: 'ignore-files-in-a-dir',
-      label: 'all files in a directory',
-      usage: '<dir name>/*',
-      nb:
-        'This must be added to .gitignore file\n\nReplace "dir name" with name of directory whose files you want git to ignore'
-    },
-    {
-      value: 'ignore-all-files-of-a-specific-type',
-      label: 'all files of a specific type',
-      usage: '*.<filename extension>',
-      nb:
-        'This must be added to .gitignore file\n\nReplace "filename extension" with the extension of the files you want git to ignore\n\nFor example *.py tells git to ignore all python files in the repository'
+      value: 'diff',
+      label: 'Inspect changes to files or directories on a container’s filesystem',
+      usage: 'docker diff CONTAINER',
     }
   ],
-
-  help: [
+  events: [
     {
-      value: 'command-help',
-      label: 'about a command',
-      usage: 'append --help to the command',
-      nb: 'e.g. git merge --help\n\nType q to quite terminal'
+      value: 'events',
+      label: 'Get real time events from the server',
+      usage: 'docker events [OPTIONS]',
+    }
+  ],
+  exec: [
+    {
+      value: 'exec',
+      label: 'Run a command in a running container',
+      usage: 'docker exec [OPTIONS] CONTAINER COMMAND [ARG...]',
+    }
+  ],
+  export: [
+    {
+      value: 'export',
+      label: 'Export a container’s filesystem as a tar archive',
+      usage: 'docker export [OPTIONS] CONTAINER',
+    }
+  ],
+  history: [
+    {
+      value: 'history',
+      label: 'Show the history of an image',
+      usage: 'docker history [OPTIONS] IMAGE',
     }
   ],
 

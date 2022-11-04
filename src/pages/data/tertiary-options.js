@@ -1,33 +1,16 @@
 export const tertiaryOptions = {
-  logs: [
+  'buildx-imagetools': [
     {
-      value: 'all',
-      label: 'all',
-      usage: 'git log',
-      nb: 'Type q in the terminal to exit the logs'
+      value: 'imagetools-create',
+      label: 'Create a new image based on source images',
+      usage: 'docker buildx imagetools create [OPTIONS] [SOURCE] [SOURCE...]',
     },
     {
-      value: 'last-n-commit',
-      label: 'for last xxx number of commits',
-      usage: 'git log -n',
-      nb: 'Replace n with number of commits e.g. git log -2'
+      value: 'imagetools-inspect',
+      label: 'Show details of an image in the registry',
+      usage: 'docker buildx imagetools inspect [OPTIONS] NAME',
     },
-    {
-      value: 'particular-period',
-      label: 'since a particular period',
-      usage: 'git log --since=period',
-      nb: 'Replace period with intended timeframe e.g git log --since=3days. You can use dates like 2018-12-31.\n\n Similar flags are --until, --before, --after'
-    },
-    {
-      value: 'commit-on-oneline',
-      label: 'with each commit on one line',
-      usage: 'git log --oneline'
-    },
-    {
-      value: 'patches-introduced',
-      label: 'with the patches introduced in each commit',
-      usage : 'git log -p'
-    }
+
   ],
   branch: [
     {
