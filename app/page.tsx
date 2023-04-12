@@ -149,18 +149,13 @@ export default function Home() {
 					)}
 					{selectedCommand !== null && (
 						<div className="relative mt-4">
-							<label
-								htmlFor="selected-command"
-								className={`block mb-2 ${textClass}`}
-							>
+							<label className={`block mb-2 ${textClass}`}>
 								Selected Command:
 							</label>
 							<div className="flex">
 								<TypingTextarea
-									id="selected-command"
 									className={`w-full p-2 border rounded resize-none ${textClass}`}
 									rows={3}
-									textClass
 									value={`${dockerCommands[selectedCommandIndex].command} ${
 										selectedOption !== null
 											? commandOptions[parseInt(selectedOption)].name
