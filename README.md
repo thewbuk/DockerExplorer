@@ -1,34 +1,18 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## Docker Commands Cheat Sheet
 
-## Getting Started
+Welcome to the Docker Commands Cheat Sheet repository! This project is aimed to provide a comprehensive guide to the most common Docker commands, their usage, and their available options. Although I do my best to keep this repository up to date, newer commands and options may be missing. In that case, please feel free to open a pull request or create an issue to let me know what is missing!
 
-First, run the development server:
+I started this project because I love working with Docker, but often find myself googling commands and options that I haven't used in a while. I wanted to create a centralized repository that I can refer to and share with others who are learning about Docker.
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+## How to use
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+This repository contains a list of common Docker commands with their description, usage, and available options. You can use the search function in GitHub to find the command you are looking for. We recommend bookmarking this repository for quick reference.
+Contributing
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+## Contributing
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+If you have any feedback or suggestions for improving this repository, we welcome your contributions! To contribute, please fork this repository and make your changes on a new branch. When you are ready to submit your changes, create a pull request with a detailed description of your changes. We will review your changes as soon as possible.
+Disclaimer
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## Disclaimer
+*This repository is not affiliated with Docker or any other organization. The commands listed here are provided as a reference and should be used at your own risk. We make no guarantees about the accuracy or completeness of the information provided. Please refer to the official Docker documentation for the latest information and updates.*
