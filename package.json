@@ -8,11 +8,11 @@
     "start": "next start",
     "lint": "next lint",
     "export": "next export"
-
   },
   "dependencies": {
     "@heroicons/react": "^2.0.17",
     "classnames": "^2.3.2",
+    "firebase": "^9.19.1",
     "next": "^13.3.1-canary.4",
     "node-localstorage": "^2.2.1",
     "parse": "^3.4.4",
